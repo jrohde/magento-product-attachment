@@ -114,6 +114,29 @@ class Staempfli_ProductAttachment_Model_File extends Mage_Core_Model_Abstract
     }
 
     /**
+     * @param $product_id int Product id
+     * @param $file_name string file name
+     * @return null|Staempfli_ProductAttachment_Model_File
+     */
+    public function searchFile($product_id, $file_name)
+    {
+        $file = Mage::getModel('staempfli_productattachment/file')
+            ->getCollection()
+            ->addFieldToFilter('product_id',$product_id)
+            ->addFieldToFilter('filename', $file_name)
+            ->getFirstItem();
+
+        if($file->getFileId() === null)
+        {
+            return null;
+        }
+        else
+        {
+            return $file;
+        }
+    }
+
+    /**
      * Update a file entry
      *
      * @param $file_id
@@ -161,11 +184,22 @@ class Staempfli_ProductAttachment_Model_File extends Mage_Core_Model_Abstract
     public function deleteFile($file_id)
     {
         $file = $this->load($file_id);
+
+        $path = Mage::helper('staempfli_productattachment')->getUploadDir();
+        $fileName = $path . DS . $file['filename'];
+
+        if(!unlink($fileName))
+        {
+            Mage::log("Can't remove file: [$fileName]", Zend_log::ERR, Staempfli_ProductAttachment_Helper_Data::LOG_FILE);
+        }
+
         try {
             $file->delete();
         } catch(Exception $e) {
             Mage::log($e->getMessage(), Zend_log::ERR, Staempfli_ProductAttachment_Helper_Data::LOG_FILE);
         }
+
+
         return $this;
     }
 

@@ -49,7 +49,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
                 $file       = $this->_getFilePath($name, $product_id, $store_id);
 
                 if($file) {
-                    $fileInfo = array(
+                    $fileInfo = array( 
                         'filename'      => $name,
                         'store_id'      => $store_id,
                         'title'         => '',
@@ -58,13 +58,13 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
                         'type'          => $extension
                     );
 
-                    $exist = file_exists($file);
+                    $file = $fileModel->searchFile($product_id, $name);
 
                     if(move_uploaded_file($data['tmp_name'], $file)) {
-                        if(!$exist) {
+                        if($file === null) {
                             $fileModel->addFile($product_id, $fileInfo);
                         } else {
-                            $fileModel->updateFile($product_id, $fileInfo);
+                            $fileModel->updateFile($file->getId(), $fileInfo);
                         }
                     }
                 }
