@@ -158,6 +158,11 @@ class Staempfli_ProductAttachment_Model_File extends Mage_Core_Model_Abstract
             $file->setDescription($data['description']);
         }
 
+        if(isset($data['type'])
+            && $data['type'] !== $file->getType()) {
+            $file->setType($data['type']);
+        }
+
         if(isset($data['sort_order'])
             && $data['sort_order'] !== $file->getSortOrder()) {
             $file->setSortOrder($data['sort_order']);
