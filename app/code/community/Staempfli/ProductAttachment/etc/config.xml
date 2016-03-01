@@ -76,4 +76,22 @@
             </updates>
         </layout>
     </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <staempfli_productattachment>
+                    <files>
+                        <default>Staempfli_ProductAttachment.csv</default>
+                    </files>
+                </staempfli_productattachment>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <staempfli_productattachment>
+                    <file>staempfli/productattachment.xml</file>
+                </staempfli_productattachment>
+            </updates>
+        </layout>
+     </frontend>
 </config>
