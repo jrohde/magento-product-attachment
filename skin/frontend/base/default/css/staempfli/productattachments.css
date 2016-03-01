@@ -1,0 +1,16 @@
+#staempfli-product-attachments-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#staempfli-product-attachments-table th {
+    font-weight: bold;
+}
+
+#staempfli-product-attachments-table td {
+    padding-right: 30px;
+}
+
+#staempfli-product-attachments-table .dl {
+    width: 30px;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!-- add css -->
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/staempfli/productattachments.css</name></action>
+        </reference>
+    </default>
+    <!-- add files tab to product view page -->
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="core/template" name="product_attachments" as="product_attachments" template="staempfli/product_attachment.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>downloads</value></action>
+            </block>
+        </reference>
+    </catalog_product_view>
+</layout>

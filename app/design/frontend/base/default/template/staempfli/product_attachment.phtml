@@ -1,0 +1,30 @@
+<?php
+$_product = Mage::registry('product');
+$_store = $this->getRequest()->getParam('store')?: 0;
+$_files = Mage::getModel('staempfli_productattachment/file')->getFilesByProductId((int)$_product->getId(), $_store);
+echo "<table id='staempfli-product-attachments-table'>";
+    echo "<tbody>";
+    if(count($_files) > 0) {
+        $path = Mage::helper('staempfli_productattachment')->getProductAttachmentUrl();
+        echo "<tr><th>".__('Title')."</th><th>".__('Description')."</th><th>".__('Filetype')."</th><th>".__('Created')."</th><th>".__('Updated')."</th><th>".__('Download')."</th></tr>";
+        foreach($_files as $file) {
+            echo "<tr>";
+                echo "<td><a target='_blank' href=".$path."/".$file->getPath().">".$file->getTitle()."</a></td>";
+                echo "<td>".$file->getDescription()."</td>";
+                echo "<td>".$file->getType()."</td>";
+                echo "<td>".$file->getCreatedAt()."</td>";
+                echo "<td>".$file->getUpdatedAt()."</td>";
+                echo "<td>";
+                    echo "<a target='_blank' href=".$path."/".$file->getPath()." download>";
+                        echo "<img title='Download ".$file->getTitle()."' alt='Download ".$file->getTitle()."' class='dl' src='".$this->getSkinUrl('images/staempfli/red-download.png')."' />";
+                    echo "</a>";
+                echo "</td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr>";
+            echo "<td colspan='6' class=''>".__('No records found.')."</td>";
+        echo "</tr>";
+    }
+    echo "</tbody>";
+echo "</table>";
