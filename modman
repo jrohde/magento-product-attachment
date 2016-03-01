@@ -1,6 +1,10 @@
-app/code/community/Staempfli/ProductAttachment                              app/code/community/Staempfli/ProductAttachment
-app/etc/modules/Staempfli_ProductAttachment.xml                             app/etc/modules/Staempfli_ProductAttachment.xml
-app/design/adminhtml/default/default/template/staempfli/productattachment   app/design/adminhtml/default/default/template/staempfli/productattachment
-app/design/adminhtml/default/default/layout/staempfli/productattachment.xml app/design/adminhtml/default/default/layout/staempfli/productattachment.xml
-skin/adminhtml/default/default/staempfli/css/productattachment.css          skin/adminhtml/default/default/staempfli/css/productattachment.css
-app/locale/de_DE/Staempfli_ProductAttachment.csv                            app/locale/de_DE/Staempfli_ProductAttachment.csv
+app/code/community/Staempfli					app/code/community/Staempfli
+app/etc/modules/Staempfli_ProductAttachment.xml			app/etc/modules/Staempfli_ProductAttachment.xml
+app/design/adminhtml/default/default/template/staempfli		app/design/adminhtml/default/default/template/staempfli
+app/design/adminhtml/default/default/layout/staempfli		app/design/adminhtml/default/default/layout/staempfli
+app/design/frontend/base/default/layout/staempfli		app/design/frontend/base/default/layout/staempfli
+app/design/frontend/base/default/template/staempfli		app/design/frontend/base/default/template/staempfli
+skin/adminhtml/default/default/staempfli			skin/adminhtml/default/default/staempfli
+skin/frontend/base/default/css/staempfli			skin/frontend/base/default/css/staempfli
+skin/frontend/base/default/images/staempfli			skin/frontend/base/default/images/staempfli
+app/locale/de_DE/Staempfli_ProductAttachment.csv		app/locale/de_DE/Staempfli_ProductAttachment.csv
