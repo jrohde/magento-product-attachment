@@ -22,8 +22,7 @@
  */
 class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends Mage_Adminhtml_Controller_Action
 {
-    public function uploadAction()
-    {
+    public function uploadAction() {
         $product_id = $this->getRequest()->getParam('product');
         $store_id   = $this->getRequest()->getParam('store');
 
@@ -76,8 +75,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
 
     }
 
-    public function formAction()
-    {
+    public function formAction() {
         $this->loadLayout();
         $this->renderLayout();
     }
@@ -88,8 +86,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
      * @param $product_id
      * @param $store_id
      */
-    public function listAction($product_id, $store_id)
-    {
+    public function listAction($product_id=null,$store_id=null) {
         $filesArray     = array();
         $sessionFormKey = Mage::getSingleton('core/session')->getFormKey();
         $productId      = ($product_id) ? $product_id : $this->getRequest()->getParam('product_id');
@@ -141,8 +138,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
     /**
      * Update  input field values
      */
-    public function updateAction()
-    {
+    public function updateAction() {
         $updateParams   = array();
         $sessionFormKey = Mage::getSingleton('core/session')->getFormKey();
         $product_id     = $this->getRequest()->getParam('product_id');
@@ -188,8 +184,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
     /**
      * Delete a file
      */
-    public function deleteAction()
-    {
+    public function deleteAction() {
         $sessionFormKey = Mage::getSingleton('core/session')->getFormKey();
         $file_id        = $this->getRequest()->getParam('file_id');
         $product_id     = $this->getRequest()->getParam('product_id');
@@ -241,8 +236,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
      * @param string $type
      * @return array
      */
-    protected function _prepareOutputData($status, $content, $type = 'list')
-    {
+    protected function _prepareOutputData($status, $content, $type = 'list') {
         $data = array();
 
         $data['status']     = $status;
@@ -263,8 +257,7 @@ class Staempfli_ProductAttachment_Adminhtml_ProductattachmentController extends 
      * @param $store_id
      * @return string
      */
-    protected function _getFilePath($name, $product_id, $store_id = false)
-    {
+    protected function _getFilePath($name, $product_id, $store_id = false) {
         $path = Mage::helper('staempfli_productattachment')->getUploadDir();
 
         if($store_id !== false) {
